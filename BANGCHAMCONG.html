@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Bảng Chấm Công</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous">
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="BANGCHAMCONG.CSS">
+    </head>
+    <body style="background-image: url('backgroundgreenn.jfif');padding: 5%;">
+       
+        <h1 style="margin: 0 auto;text-align: center;font-size: 70px;"
+            class="bangchamcong">BẢNG CHẤM CÔNG</h1>
+        <nav>
+
+            <form action="BANGCHAMCONG.html"><button class="btn btn-success"
+                    class="btn btn-secondary">BẢNG CHẤM CÔNG</button></form>
+            <form action="LICHSUCHAMCONG.html"><button class="btn btn-success "
+                    class="btn btn-secondary">LỊCH SỬ CHẤM CÔNG</button></form>
+            <form action="THEMNHANVIEN.HTML"><button class="btn btn-success"
+                    class="btn btn-secondary">THÊM NHÂN VIÊN</button></form>
+            <form action="BANGTINHCONG.HTML"><button class="btn btn-success"
+                    class="btn btn-secondary">BẢNG TÍNH CÔNG</button></form>
+            <form action="NOIQUY.HTML"><button class="btn btn-success"
+                    class="btn btn-secondary">NỘI QUY</button></form>
+
+        </nav>
+        <div style="padding: 20px;">
+            <div style="display:  flex;padding: 10px;"> 
+                <div >
+                    <h2 class="container">Nhập ID vào:</h2>
+                    <input id="codein" type="number" min="1" max="3">
+                    <button  class="btn btn-success" onclick="updateTime()">Xác nhận</button>
+                </div>
+
+               
+            </div>
+
+            <DIV style="padding: 20px;">
+                <div style="display:  flex;padding-bottom: 10px;"> 
+                    <div >
+                        <h2 class="container">Nhập ID ra:</h2>
+                        <input id="codeout" type="number" min="1" max="3">
+                        <button  class="btn btn-success" onclick="updateTimeOUT() " onchange="calculateWorkingHours()">Xác nhận</button>
+                    </div>
+            </DIV>
+
+           
+
+            <div class="table">
+                <div class="elementname">
+                    <h2 style="padding: 10px;font-size: 30px;">TÊN NHÂN VIÊN :</h2>
+                    <input id="name" type="text">
+
+                </div>
+
+                <div class="elementmssv">
+                    <h2 style="padding: 10px;font-size: 30px;">MSNV :</h2>
+                    <input id="id" type="text">
+                </div>
+
+                <div class="elementgiovao">
+                    <h2>GIỜ VÀO :</h2>
+                    <input id="giovao" type="text">
+
+                </div>
+
+                <div class="elementgiora">
+                    <h2>GIỜ RA :</h2>
+                    <input id="giora" type="text">
+
+                </div>
+
+                <div class="elementtonggiolam">
+                    <h2>TỔNG GIỜ LÀM :</h2>
+                    <input id="tonggio" type="text">
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function updateDateTimeField(fieldId, time) {
+                document.getElementById(fieldId).value = time;
+            }
+          
+    
+            function getCurrentTime() {
+                var currentTime = new Date();
+                var hours = currentTime.getHours();
+                var minutes = currentTime.getMinutes();
+                var formattedTime = hours + ':' + (minutes < 10 ? '0' : '') + minutes;
+
+                return formattedTime;
+            }
+
+            function calculateWorkingHours(timeIn, timeOut) {
+    var timeInParts = timeIn.split(':');
+    var timeOutParts = timeOut.split(':');
+
+    var hoursIn = parseInt(timeInParts[0]);
+    var minutesIn = parseInt(timeInParts[1]);
+
+    var hoursOut = parseInt(timeOutParts[0]);
+    var minutesOut = parseInt(timeOutParts[1]);
+
+    var totalMinutes = (hoursOut - hoursIn) * 60 + (minutesOut - minutesIn);
+    var hours = Math.floor(totalMinutes / 60);
+    var minutes = totalMinutes % 60;
+
+    document.getElementById('tonggio').value = hours + ':' + (minutes < 10 ? '0' : '') + minutes;
+    document.getElementById('tonggio').setAttribute('value', hours + ':' + (minutes < 10 ? '0' : '') + minutes);
+}
+            //TIME INNNNNN
+            function updateTime() {
+
+                var array = [1, 2, 3];
+                var object = { key1: 'Lê Đoàn Minh Nhật', key2: 'Lê Văn Lương', key3: 'Bùi Yến Nhi' };
+
+                if (document.getElementById('codein').value == 1) {
+                    var enteredId = document.getElementById('codein').value;
+                    var currentTime = getCurrentTime();
+
+                    
+                    var enteredMSSV = array[0];
+                    var enteredName = object.key1;
+
+                    
+                    document.getElementById('name').value = enteredName;
+                    document.getElementById('id').value = enteredMSSV;
+
+                    
+                    updateDateTimeField('giovao', currentTime);
+                   
+                }
+                
+            
+                if (document.getElementById('codein').value == 2) {
+                    var enteredId = document.getElementById('codein').value;
+                    var currentTime = getCurrentTime();
+
+                    
+                    var enteredMSSV = array[1];
+                    var enteredName = object.key2;
+
+                    
+                    document.getElementById('name').value = enteredName;
+                    document.getElementById('id').value = enteredMSSV;
+
+                    
+                    updateDateTimeField('giovao', currentTime);
+                }
+                
+            
+                if (document.getElementById('codein').value == 3) {
+                    var enteredId = document.getElementById('codein').value;
+                    var currentTime = getCurrentTime();
+
+                    
+                    var enteredMSSV = array[2];
+                    var enteredName = object.key3;
+
+                    
+                    document.getElementById('name').value = enteredName;
+                    document.getElementById('id').value = enteredMSSV;
+
+                    
+                    updateDateTimeField('giovao', currentTime);
+                    
+                }
+                
+            
+
+           
+                
+            }
+
+            //TIME OUTTTTT 
+            
+            
+            function updateTimeOUT() {
+                var array = [1, 2, 3];
+                var object = { key1: 'Lê Đoàn Minh Nhật', key2: 'Lê Văn Lương', key3: 'Bùi Yến Nhi' };
+
+                if (document.getElementById('codeout').value == 1) {
+                    var enteredId = document.getElementById('codeout').value;
+                    var currentTime = getCurrentTime();
+                   
+
+                    
+                    var enteredMSSV = array[0];
+                    var enteredName = object.key1;
+                     
+                    
+                    
+                    document.getElementById('name').value = enteredName;
+                    document.getElementById('id').value = enteredMSSV;
+
+                  
+                    
+                    updateDateTimeField('giora', currentTime);
+                  
+                    
+                }
+                
+            
+                if (document.getElementById('codeout').value == 2) {
+                    var enteredId = document.getElementById('codeout').value;
+                    var currentTime = getCurrentTime();
+
+                    
+                    var enteredMSSV = array[1];
+                    var enteredName = object.key2;
+
+                    
+                    document.getElementById('name').value = enteredName;
+                    document.getElementById('id').value = enteredMSSV;
+
+                    
+                    updateDateTimeField('giora', currentTime);
+                }
+                
+            
+                if (document.getElementById('codeout').value == 3) {
+                    var enteredId = document.getElementById('codeout').value;
+                    var currentTime = getCurrentTime();
+
+                    
+                    var enteredMSSV = array[2];
+                    var enteredName = object.key3;
+
+                    
+                    document.getElementById('name').value = enteredName;
+                    document.getElementById('id').value = enteredMSSV;
+
+                    
+                    updateDateTimeField('giora', currentTime);
+                    var caculated=currentTime-saveTimeIn;
+                    document.getElementById('tonggio').innerHTML=caculated;
+                }
+                
+            }
+
+        
+
+
+            
+        </script>
+     
+
+    </body>
+</html>

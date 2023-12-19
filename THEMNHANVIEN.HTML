@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="BANGCHAMCONG.CSS">
+    <link rel="stylesheet" href="LICHSUCHAMCONG.CSS">
+</head>
+
+<body style="background-image: url('backgroundgreenn.jfif');padding: 5%;">
+    <h1 style="margin: 10px auto;text-align: center;font-size: 70px;" class="bangchamcong">THÊM NHÂN VIÊN</h1>
+    <table style="color: lightgreen;">
+        <link rel="stylesheet" href="THEMNHANVIEN.CSS">
+
+        <NAV>
+            <form action="BANGCHAMCONG.html"><button class="btn btn-success" class="btn btn-secondary">BẢNG CHẤM CÔNG</button></form>
+            <form action="LICHSUCHAMCONG.html"><button class="btn btn-success " class="btn btn-secondary">LỊCH SỬ CHẤM CÔNG</button></form>
+            <form action="THEMNHANVIEN.HTML"><button class="btn btn-success" class="btn btn-secondary">THÊM NHÂN VIÊN</button></form>
+            <form action="BANGTINHCONG.HTML"><button class="btn btn-success" class="btn btn-secondary">BẢNG TÍNH CÔNG</button></form>
+            <form action="NOIQUY.HTML"><button class="btn btn-success" class="btn btn-secondary">NỘI QUY</button></form>
+        </NAV>
+
+        <DIV class="tableadd">
+            <DIV class="elementadd"> <label for="name">TÊN NHÂN VIÊN :</label>
+                <input id="name" type="text">
+                <span id="name-error" class="error"></span>
+            </DIV>
+            <DIV class="elementadd">MÃ NHÂN VIÊN:
+                <input id="code" type="number" min="1" max="10">
+                <span id="code-error" class="error"></span>
+            </DIV>
+            <DIV class="elementadd">NV CHI NHÁNH:
+                <input id="workplace" type="text">
+                <span id="workplace-error" class="error"></span>
+            </DIV>
+            <DIV class="elementadd">NGÀY THÊM:
+                <input id="date" type="date">
+                <span id="date-error" class="error"></span>
+            </DIV>
+
+            <DIV>
+                <button  onclick="themnv()" class="btn btn-success btn-secondary">XÁC NHẬN</button>
+            </DIV>
+
+
+            <table class="table table-bordered" style="margin-top: 20px;">
+                <thead>
+                    <tr>
+                        <th scope="col">TÊN NHÂN VIÊN</th>
+                        <th scope="col">MÃ NHÂN VIÊN</th>
+                        <th scope="col">NV CHI NHÁNH</th>
+                        <th scope="col">NGÀY THÊM</th>
+                    </tr>
+                </thead>
+                <tbody id="enteredDataBody"></tbody>
+            </table>
+            
+        </DIV>
+       
+        <div style="border: 1px solid black; " id="enteredDataContainer"></div>
+        <script src="javascaript.js"></script>
+</body>
+
+</html>
