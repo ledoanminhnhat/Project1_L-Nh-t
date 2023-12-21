@@ -3,40 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- Font Awesome -->
+    <title>Login Page</title>
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="contaier mt-5" style="width: auto; display: flex; justify-content: center; align-items: center;">
-        <form style="background-color: lightgreen; width: 50%; padding: 5% ;border-radius: 5px; border:3px solid darkgreen; ">
-            <!-- Email input -->
+    <div class="container mt-5" style="width: auto; display: flex; justify-content: center; align-items: center;">
+        <form id="loginForm" style="background-color: rgb(65, 184, 65); width: 50%; padding: 5% ;border-radius: 5px; border:3px solid darkgreen; ">
             <div class="form-outline mb-4">
                 <h1 style="text-align: center;">LOGIN</h1>
             </div>
             <div class="form-outline mb-4">
                 <input type="email" id="form2Example1" class="form-control ina" onfocus="changeBackgroundColor(this)" onblur="restoreBackgroundColor(this)" />
-                <label class="form-label" for="form2Example1">Email address</label>
+                <label class="form-label" for="form2Example1">Tên đăng nhập</label>
             </div>
-
-            <!-- Password input -->
             <div class="form-outline mb-4">
                 <input type="password" id="form2Example2" class="form-control ina" onfocus="changeBackgroundColor(this)" onblur="restoreBackgroundColor(this)" />
-                <label class="form-label" for="form2Example2">Password</label>
+                <label class="form-label" for="form2Example2">Mật khẩu</label>
             </div>
-
-            <!-- Submit button -->
-            <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
-
-            <!-- Register buttons -->
+            <button type="button" class="btn btn-primary btn-block mb-4"  onclick="login()">Đăng nhập</button>
         </form>
     </div>
 
-    <!-- MDB -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
 
     <script>
@@ -46,6 +36,25 @@
 
         function restoreBackgroundColor(element) {
             element.style.backgroundColor = 'lightgreen';
+        }
+
+        function login() {
+            var email = document.getElementById('form2Example1').value;
+            var password = document.getElementById('form2Example2').value;
+
+           
+            if (email === 'lenhat' && password === '123123') {
+                
+                window.location.href = 'BANGCHAMCONG.HTML';
+            } else {
+                
+                alert('Thông tin đăng nhập sai , xin hãy thử lại');
+            }
+        }
+        function checkEnter(event) {
+            if (event.key === 'Enter') {
+                login();
+            }
         }
     </script>
 </body>

@@ -1,10 +1,8 @@
 .bangchamcong{
-    padding: 10px;
-    width: 85%;
+    width: 100%; 
     height: 50%;
-    
-    background-color:rgb(239, 236, 236);
-    margin: 80%;
+    background-color: white;
+    margin: 0; 
     border: 5px double rgb(44, 43, 43);
     border-radius: 5px;
     color: black;
@@ -19,7 +17,7 @@
     margin:auto;
     height: 600px;
     text-align: center;
-    background-color: rgb(239, 236, 236);
+    background-color: azure;
     border: 5px double black;
     border-radius: 5px;
 
@@ -65,7 +63,7 @@ form{
     font-weight: bold;
 
 }
-.elementgiovao{
+.elementtimeIn{
   
       
     border: 5px double gray;
@@ -80,7 +78,7 @@ form{
 
     
 }
-.elementgiora{
+.elementtimeOut{
   
       
     border: 5px double gray;
@@ -95,7 +93,7 @@ form{
 
 }
 
-.elementtonggiolam{
+.elementtotalHourslam{
   
     
     border: 5px double gray;
